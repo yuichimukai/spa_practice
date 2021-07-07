@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
-import { Restaurants } from "./containers/Restaurant";
+import { Restaurants } from "./containers/Restaurants";
 import { Foods } from "./containers/Foods";
 import { Orders } from "./containers/Orders";
 
