@@ -70,10 +70,13 @@ export const Foods = ({ match }) => {
     fetchFoods(match.params.restaurantsId).then((data) => {
       dispatch({
         type: foodsActionTypes.FETCH_SUCCESS,
-        payload: { foods: data.foods },
+        payload: {
+          foods: data.foods,
+        },
       });
     });
-  }, [match]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Fragment>

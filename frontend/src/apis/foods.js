@@ -1,5 +1,5 @@
 import axios from "axios";
-import { foodsIndex } from "../urls";
+import { foodsIndex } from "../urls/index";
 
 export const fetchFoods = (restaurantId) => {
   return axios
