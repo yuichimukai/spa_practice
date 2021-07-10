@@ -8,7 +8,7 @@ class LineFood < ApplicationRecord
   
   #sucopeメソッドはActiveRecord_Relationオブジェクトが返ってくる
   #scopeを呼び出したときに実装してほしいクエリを渡している
-  scope :actice, -> { where(active: true} }
+  scope :active, -> { where(active: true) }
   #scopeには引数を与えることができる
   scope :other_restaurant, -> (picked_restaurnat_id) { where.not(restaurant_id: picked_restaurnat_id) }
 
