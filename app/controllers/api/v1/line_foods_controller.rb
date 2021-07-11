@@ -7,13 +7,23 @@ module Api
         line_foods = LineFood.active
         #仮注文ページには仮注文をする前にもリクエストは走るためexists?でチェック
         if line_foods.exists?
+          line_food_ids = []
+          count = 0
+          amount = 0
+
+          line_foods.each do |line_food|
+            line_food_ids << line_food.id
+            count += line_food[:count]
+            amount += line_food.total_amount
+          end
+
           render json: {
-            line_food_ids: line_foods.map{|line_food|line_food.id},
+            line_food_ids: line_food_ids,
             restaurant: line_foods[0].restaurant,
             #保守性の観点からデータの計算のためコントローラ層で処理
-            count: line_foods.sum{|line_food|line_food[:count]},
+            count: count,
             #数量*単価の合計を示す
-            amount: line_foods.sum{|line_food|line_food.total_amount},
+            amount: amount,
           }, status: :ok
         else
           render json: {}, status: :no_content

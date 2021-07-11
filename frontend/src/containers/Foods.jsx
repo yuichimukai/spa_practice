@@ -8,6 +8,7 @@ import { FoodWrapper } from "../components/FoodWrapper";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { FoodOrderDialog } from "../components/FoodOrderDialog";
 import { NewOrderConfirmDialog } from "../components/NewOrderConfirmDialog";
+import { HeaderWrapper, MainLogoImage } from "../components/StyledHeader";
 
 //reducers
 import {
@@ -29,21 +30,12 @@ import { REQUEST_STATE } from "../constants";
 import { COLORS } from "../style_constants";
 import { HTTP_STATUS_CODE } from "../constants";
 
-const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 32px;
-`;
 const BagIconWrapper = styled.div`
   padding-top: 24px;
 `;
 
 const ColorBagIcon = styled(LocalMallIcon)`
   color: ${COLORS.MAIN};
-`;
-
-const MainLogoImage = styled.img`
-  height: 90px;
 `;
 
 const FoodsList = styled.div`
