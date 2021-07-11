@@ -41,6 +41,7 @@ export const OrderDetailItem = ({
     </LineWrapper>
     <LineWrapper>
       <p>商品数:{foodCount}</p>
+      <p>¥ {price}</p>
     </LineWrapper>
     <LineWrapper>
       <p>配送料</p>

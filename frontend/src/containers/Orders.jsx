@@ -48,16 +48,14 @@ export const Orders = () => {
 
   useEffect(() => {
     dispatch({ type: lineFoodsActionTypes.FETCHING });
-    fetchLineFoods()
-      .then((data) =>
-        dispatch({
-          type: lineFoodsActionTypes.FETCH_SUCCESS,
-          payload: {
-            lineFoodsSummary: data,
-          },
-        })
-      )
-      .catch((e) => console.error(e));
+    fetchLineFoods().then((data) =>
+      dispatch({
+        type: lineFoodsActionTypes.FETCH_SUCCESS,
+        payload: {
+          lineFoodsSummary: data,
+        },
+      })
+    );
   }, []);
 
   const postLineFoods = () => {
@@ -66,8 +64,8 @@ export const Orders = () => {
       line_food_ids: state.lineFoodsSummary.line_food_ids,
     }).then(() => {
       dispatch({ type: lineFoodsActionTypes.POST_SUCCESS });
-      window.location.reload();
     });
+    window.location.reload();
   };
 
   const orderButtonLabel = () => {
@@ -115,7 +113,7 @@ export const Orders = () => {
                   state.postState === REQUEST_STATE.OK
                 }
               >
-                {orderButtonLabel}
+                {orderButtonLabel()}
               </OrderButton>
             )}
             {state.fetchState === REQUEST_STATE.OK &&
